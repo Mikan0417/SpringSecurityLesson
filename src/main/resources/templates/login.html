@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login page</title>
+</head>
+<body>
+<form th:action="@{/login/auth}" th:object="${authInfo}" method="post"> <!--ログイン認証用の/login/authパスアクションをポスト通信でSecurityConfigのloginProcessingUrlへリクエストを送る-->
+  <span>email</span>
+    <input type="text" th:field="*{email}"> <!-- (*{mail})でobjectに格納したauthInfoを利用できる。=authInfo.emailと同義-->
+
+  <span>Password</span>
+  <input type="text" th:field="*{pass}"> <!-- (*{pass})でobjectに格納したauthInfoを利用できる。=authInfo.emailと同義-->
+
+  <input type="submit" value="login">
+</form>
+</body>
+</html>

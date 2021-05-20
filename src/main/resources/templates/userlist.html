@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List Page</title>
+</head>
+<body>
+User Lists
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>email</th>
+            <th>password</th>
+            <th>name</th>
+            <th>roleType</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userlist}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.roleType}"></td>
+        </tr>
+        </tbody>
+    </table>
+<!--    admintop変遷ボタン-->
+    <form th:action="@{/admin/top}" method="get">
+        <input type="submit" value="admintop">
+    </form>
+<!--    ログアウトボタン-->
+    <form th:action="@{/user/logout}" method="post">　 <!--ログアウト用の/user/logoutパスアクションをポスト通信で行う-->
+        <input type="submit" value="logout">
+    </form>
+</body>
+</html>
